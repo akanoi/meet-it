@@ -49,6 +49,16 @@
 	};
 	fullHeight();
 
+    var midHeight = function() {
+
+        $('.js-midheight').css('height', $(window).height() - 300);
+        $(window).resize(function(){
+            $('.js-fullheight').css('height', $(window).height() - 300);
+        });
+
+    };
+    midHeight();
+
 	// loader
 	var loader = function() {
 		setTimeout(function() { 

@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  email: MyString
-  password_digest: MyString
+  email: MyString@profitero.com
+  encrypted_password: MyString
 
 two:
   name: MyString
-  email: MyString
-  password_digest: MyString
+  email: MyString2@profitero.com
+  encrypted_password: MyString

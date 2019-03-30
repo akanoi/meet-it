@@ -9,6 +9,8 @@ gem 'rails', '~> 5.2.3'
 # gem 'sqlite3'
 gem 'pg'
 
+gem 'pry'
+
 gem 'rubocop', require: false
 
 # Use Puma as the app server

@@ -1,0 +1,26 @@
+<div id="menu">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li><%= link_to home_index_path do %><%= t('.home') %><% end %></li>
+        <li class="search">
+          <%#= form_tag results_path, method: :get, role: 'search', class: 'search-form' do %>
+            <%#= text_field_tag :s, params[:s] %>
+            <%#= submit_tag t('.search'), name: nil, class: 'btn btn-default'%>
+          <%# end %>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% unless user_signed_in? %>
+          <li><%= link_to new_user_registration_path do %><span class="glyphicon glyphicon-user"></span> <%= t('.sign_up') %><% end %></li>
+          <li><%= link_to new_user_session_path do %><span class="glyphicon glyphicon-log-in"></span> <%= t('.login') %><% end %></li>
+        <% else %>
+          <li><a href="/profile/<%= current_user.id %>">
+            <img width="24" height="24" avatar="<%= current_user.name %>" class="round">
+          </a></li>
+          <li><a href="/users/sign_out" class="material-icons">exit_to_app</a></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</div>

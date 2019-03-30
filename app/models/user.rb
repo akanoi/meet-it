@@ -3,8 +3,8 @@ require_relative '../../config/constants'
 class User < ApplicationRecord
   include Constants
 
-  # devise :database_authenticatable, :registerable,
-  #        :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 
   validates :name, presence: true, length: { maximum: MAX_NAME_LENGTH }
   validates :email, presence: true, length: { maximum: NAX_EMAIL_LENGTH },

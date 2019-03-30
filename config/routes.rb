@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :users
-  resources :events
+  resources :events do
+    collection do
+      get 'filter'
+    end
+  end
 
   get '/profile/:user_id', to: 'users#profile', as: :profile
 

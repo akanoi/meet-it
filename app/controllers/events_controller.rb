@@ -21,6 +21,9 @@ class EventsController < ApplicationController
   def edit
   end
 
+  def filter
+  end
+
   # POST /events
   # POST /events.json
   def create

@@ -3,6 +3,8 @@ require_relative '../../config/constants'
 class User < ApplicationRecord
   include Constants
 
+  has_many :event_users
+  has_many :events, through: :event_users
   has_and_belongs_to_many :interests
 
   devise :database_authenticatable, :registerable,

@@ -14,7 +14,7 @@
 
          <% if current_user %>
           <li class="nav-item">
-            <%= link_to 'Profile', profile_path, class: 'nav-link' %>
+            <a href="/profile/<%= current_user.id %>" @class="nav-link"></a>
           </li>
           <li class="nav-item">
             <%= link_to 'Sign Out', destroy_user_session_url, method: :delete, class: 'nav-link' %>

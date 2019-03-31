@@ -7,15 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Requirement.create([
-  {kind: 0, description: 'req1'},
-  {kind: 1, description: 'req2'},
-  {kind: 2, description: 'req3'}
+  {kind: 0, description: 'Быть весёлым'},
+  {kind: 1, description: 'Иметь спортивную одежду'},
+  {kind: 2, description: 'Не курить'}
 ])
 
 Place.create([
-  {name: 'pl1', address: 'ad1', description: 'desc'},
-  {name: 'pl2', address: 'ad2', description: 'desc'},
-  {name: 'pl3', address: 'ad3', description: 'desc'},
+  {name: 'Wok', address: 'Galleria Minsk', description: 'Азиатская кухня'},
+  {name: 'Эль-Патио', address: 'Galleria Minsk', description: 'Ресторан итальянской кухни'},
+  {name: 'Столовая', address: 'Обойная 12', description: 'Столовая Неорестор'},
+  {name: 'Теннис', address: 'Офис 8 этажа', description: 'Игра в настольный теннис'}
 ])
 
 Interest.create([
@@ -29,20 +30,47 @@ Interest.create([
 Event.create([
   {
     date: '2019-07-13',
-    datetime: '2019-07-13 23:59:59',
-    description: 'nothing',
+    datetime: '2019-07-13 13:00:00',
+    description: 'Сходить покушать',
     place_id: 1,
     status: true,
     privacy: false,
     kind: 0,
-    requirements: Requirement.all},
+    requirements: Requirement.where(kind: [0, 1])},
   {
     date: '2019-07-14',
-    datetime: '2019-07-14 23:59:59',
-    description: 'nothing',
-    place_id: 2,
+    datetime: '2019-07-14 18:00:00',
+    description: 'Игра 2х2',
+    place_id: 3,
     status: false,
     privacy: false,
     kind: 1
+  }
+])
+
+User.create([
+  {
+    name: 'anton',
+    email: 'anton@profitero.com',
+    skype: 'anton.skype',
+    phone: '+8888888888',
+    telegram: 'anton.telegram',
+    encrypted_password: 'qwerty'
+  },
+  {
+    name: 'vlad',
+    email: 'vlad@profitero.com',
+    skype: 'vlad.skype',
+    phone: '+999999999',
+    telegram: 'vlad.telegram',
+    encrypted_password: 'qwerty'
+  },
+  {
+    name: 'john',
+    email: 'john@profitero.com',
+    skype: 'john.skype',
+    phone: '+2222222222',
+    telegram: 'john.telegram',
+    encrypted_password: ''
   }
 ])

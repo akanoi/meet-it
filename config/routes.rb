@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     collection do
       get 'filter'
     end
+    member do
+      get 'join_event'
+    end
   end
 
   get '/profile/:user_id', to: 'users#profile', as: :profile

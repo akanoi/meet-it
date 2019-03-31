@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :join_event]
 
   # GET /events
   # GET /events.json
@@ -20,6 +20,21 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+  end
+
+  def join_event
+    event_users = @event.users
+    if current_user.nil?
+      notice = 'Sign in!'
+    elsif event_users.include?(current_user)
+      notice = 'Already joined!'
+    else
+      notice = 'User has been joined'
+    end
+
+    respond_to do |format|
+      format.html { redirect_to events_path, notice: notice }
+    end
   end
 
   # POST /events

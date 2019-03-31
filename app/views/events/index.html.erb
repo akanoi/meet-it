@@ -25,7 +25,7 @@
                     <div class="img speaker-img" style="background-image: url('<%= asset_path("person_#{index + 1}.jpg")%>');"></div>
                     <div class="text pl-md-5">
                       <span class="time"><%= event.datetime.strftime("%F %T") %></span>
-                      <h2><a href="#"><%= event.description %></a></h2>
+                      <h2><a href="/events/<%= event.id %>"><%= event.description %></a></h2>
                       <h3 class="speaker-name">
                         <a href="/profile/<%= event.event_users.where(role: 'organizer')[0].user_id %>"><%= event.event_users.where(role: 'organizer').map { |u| u.user.name }.join(', ') %></a>
                       </h3>

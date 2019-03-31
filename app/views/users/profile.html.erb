@@ -36,7 +36,7 @@
         </div>
         <div class="w-100"></div>
         <div class="col-md-3">
-          <p><span>Phone:</span> <a href="tel://<%= (@user.phone || '').tr('+- ', '') %>"><%= @user.phone %></a></p>
+          <p><span>Phone:</span> <a href="tel://<%= (@user.phone || '').gsub('+- ', '') %>"><%= @user.phone %></a></p>
         </div>
         <div class="col-md-3">
           <p><span>Email:</span> <a href="mailto:<%= @user.email %>"><%= @user.email %></a></p>

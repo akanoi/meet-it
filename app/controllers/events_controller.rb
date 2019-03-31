@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
+    @event_kinds = Event.kinds
   end
 
   # GET /events/1
@@ -19,9 +20,6 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-  end
-
-  def filter
   end
 
   # POST /events

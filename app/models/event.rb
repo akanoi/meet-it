@@ -3,5 +3,5 @@ class Event < ApplicationRecord
   has_many :event_users
   has_many :users, through: :event_users
   has_and_belongs_to_many :requirements
-  enum type: [:food, :sport, :other ]
+  enum kind: [:food, :sport, :entertainment, :other]
 end

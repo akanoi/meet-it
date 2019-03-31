@@ -1,55 +1,51 @@
-
-
-        <%# if @user && current_user.id == @user.id%>
-
-        <%# end %>
-
 <% if @user %>
-  <section class="ftco-section contact-section">
-    <div class="container">
-      <div class="row no-gutters slider-text align-items-end justify-content-start">
-        <div class="col-md-9 ftco-animate pb-5">
-          <h1 class="mb-3 bread"><%= @user.name.capitalize %></h1>
-        </div>
-      </div>
+<section class="ftco-section contact-section bg-light">
+  <div class="container">
+    <div class="row">
+        <form action="#" class="bg-light p-5 contact-form">
+          <div class="form-group">
+            <label>Your name</label>
+            <input type="text" class="form-control" value="<%= @user.name.capitalize %>">
+          </div>
+
+          <div class="form-group">
+            <label>Interests</label>
+            <textarea name="" id="" cols="30" rows="2" class="form-control"><%= @user.interests.map {|i| i.name.capitalize}.join(', ') %></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Events</label>
+            <textarea name="" id="" cols="30" rows="2" class="form-control"><%= @user.events.map {|i| i.description.capitalize}.join(', ') %></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="text" class="form-control" value="<%= @user.phone %>">
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control" value="<%= @user.email %>">
+          </div>
+
+          <div class="form-group">
+            <label>Skype</label>
+            <input type="text" class="form-control" value="<%= @user.skype %>">
+          </div>
+
+          <div class="form-group">
+            <label>Telegram</label>
+            <input type="text" class="form-control" value="<%= @user.telegram %>">
+          </div>
+
+          <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary py-3 px-5">
+          </div>
+          
+        </form>
     </div>
-    <div class="container">
-      <div class="row d-flex mb-5 contact-info">
-        <div class="col-md-12 mb-4">
-          <h2 class="h3">Interests:</h2>
-        </div>
-        <div class="w-100"></div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row d-flex mb-5 contact-info">
-        <div class="col-md-12 mb-4">
-          <h2 class="h3">Events:</h2>
-        </div>
-        <div class="w-100"></div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row d-flex mb-5 contact-info">
-        <div class="col-md-12 mb-4">
-          <h2 class="h3">Contact Information</h2>
-        </div>
-        <div class="w-100"></div>
-        <div class="col-md-3">
-          <p><span>Phone:</span> <a href="tel://<%= (@user.phone || '').gsub('+- ', '') %>"><%= @user.phone %></a></p>
-        </div>
-        <div class="col-md-3">
-          <p><span>Email:</span> <a href="mailto:<%= @user.email %>"><%= @user.email %></a></p>
-        </div>
-        <div class="col-md-3">
-          <p><span>Skype:</span> <a href="#"><%= @user.skype %></a></p>
-        </div>
-        <div class="col-md-3">
-          <p><span>Telegram:</span> <a href="#"><%= @user.telegram %></a></p>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 <% else %>
   <section class="ftco-section contact-section">
     <div class="container">
@@ -60,24 +56,4 @@
       </div>
     </div>
   </section>
-<% end %>>
-
-<!-- loader -->
-<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery-migrate-3.0.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.easing.1.3.js"></script>
-<script src="js/jquery.waypoints.min.js"></script>
-<script src="js/jquery.stellar.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/aos.js"></script>
-<script src="js/jquery.animateNumber.min.js"></script>
-<script src="js/bootstrap-datepicker.js"></script>
-<script src="js/jquery.timepicker.min.js"></script>
-<script src="js/scrollax.min.js"></script>
-<script src="js/google-map.js"></script>
-<script src="js/main.js"></script>
+<% end %>

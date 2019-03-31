@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'questions/edit'
   get 'questions', to: 'questions#show'
   devise_for :users
-  root to: 'home#index'
+  root to: 'events#index'
 
   resources :users
   resources :events do

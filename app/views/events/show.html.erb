@@ -1,19 +1,28 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
-
-<p>
-  <strong>Datetime:</strong>
-  <%= @event.datetime %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
-
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
+
+<section class="ftco-section contact-section">
+  <div class="container">
+    <div class="row d-flex mb-5 contact-info">
+      <div class="col-md-12 mb-4">
+        <h2 class="h3">Description:</h2>
+        <%= @event.description%>
+      </div>
+      <div class="w-100"></div>
+    </div>
+    <div class="row d-flex mb-5 contact-info">
+      <div class="col-md-12 mb-4">
+        <h2 class="h3">Datetime:</h2>
+        <%= @event.datetime%>
+      </div>
+      <div class="w-100"></div>
+    </div>
+    <div class="row d-flex mb-5 contact-info">
+      <div class="col-md-12 mb-4">
+        <h2 class="h3">Joined users:</h2>
+        <%= @event.users.map(&:name).join(', ')%>
+      </div>
+      <div class="w-100"></div>
+    </div>
+  </div>
+</section>

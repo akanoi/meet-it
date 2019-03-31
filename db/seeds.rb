@@ -83,6 +83,23 @@ users = User.create!([
   }
 ])
 
+questions = Question.create!([
+   {
+     user_id: 1,
+     question: 'Сколько у тебя рук?',
+     answer: '',
+     user_to_id: 2,
+     anon: true
+   },
+   {
+     user_id: 2,
+     question: 'Сколько раз в день ты куришь?',
+     answer: '',
+     user_to_id: 1,
+     anon: false
+   }
+])
+
 EventUser.create!([
   {user_id: 1, event_id: 1, role: 0},
   {user_id: 1, event_id: 1, role: 1},

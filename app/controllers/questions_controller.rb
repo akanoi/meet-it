@@ -12,6 +12,9 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
+    respond_to do |format|
+      format.html { redirect_to questions_path, notice: notice }
+    end
   end
 
   # GET /questions/new

@@ -6,20 +6,20 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Requirement.create([
+requirements = Requirement.create!([
   {kind: 0, description: 'Быть весёлым'},
   {kind: 1, description: 'Иметь спортивную одежду'},
   {kind: 2, description: 'Не курить'}
 ])
 
-Place.create([
+places = Place.create!([
   {name: 'Wok', address: 'Galleria Minsk', description: 'Азиатская кухня'},
   {name: 'Эль-Патио', address: 'Galleria Minsk', description: 'Ресторан итальянской кухни'},
   {name: 'Столовая', address: 'Обойная 12', description: 'Столовая Неорестор'},
   {name: 'Теннис', address: 'Офис 8 этажа', description: 'Игра в настольный теннис'}
 ])
 
-Interest.create([
+interests = Interest.create!([
   {name: 'food'},
   {name: 'sport'},
   {name: 'gaming'},
@@ -27,7 +27,7 @@ Interest.create([
   {name: 'movies'}
 ])
 
-Event.create([
+events = Event.create!([
   {
     date: '2019-07-13',
     datetime: '2019-07-13 13:00:00',
@@ -48,14 +48,15 @@ Event.create([
   }
 ])
 
-User.create([
+users = User.create!([
   {
     name: 'anton',
     email: 'anton@profitero.com',
     skype: 'anton.skype',
     phone: '+8888888888',
     telegram: 'anton.telegram',
-    encrypted_password: 'qwerty'
+    password: 'asdasdaada',
+    encrypted_password: '$2a$11$6uRaqtnuq3IMIByz.DewWeGclJQ/j8ma1oo16FAOdmxJYgkTy4t7a'
   },
   {
     name: 'vlad',
@@ -63,14 +64,34 @@ User.create([
     skype: 'vlad.skype',
     phone: '+999999999',
     telegram: 'vlad.telegram',
-    encrypted_password: 'qwerty'
+    password: 'asdasdaada',
+    encrypted_password: '$2a$11$6uRaqtnuq3IMIByz.DewWeGclJQ/j8ma1oo16FAOdmxJYgkTy4t7a'
   },
   {
     name: 'john',
     email: 'john@profitero.com',
+    created_at: '2019-07-14 18:00:00',
+    updated_at: '2019-07-14 18:00:00',
     skype: 'john.skype',
     phone: '+2222222222',
     telegram: 'john.telegram',
-    encrypted_password: ''
+    password: 'asdasdaada',
+    encrypted_password: '$2a$11$6uRaqtnuq3IMIByz.DewWeGclJQ/j8ma1oo16FAOdmxJYgkTy4t7a',
+    reset_password_token: 'asdnasndnajndjandj',
+    reset_password_sent_at: '2019-07-14 18:00:00',
+    remember_created_at: '2019-07-14 18:00:00'
   }
 ])
+
+EventUser.create!([
+  {user_id: 1, event_id: 1, role: 0},
+  {user_id: 1, event_id: 1, role: 1},
+  {user_id: 2, event_id: 2, role: 1},
+  {user_id: 2, event_id: 2, role: 0},
+  {user_id: 3, event_id: 1, role: 1},
+  {user_id: 3, event_id: 2, role: 1}
+])
+
+users[0].interests << Interest.all
+users[1].interests << Interest.all
+users[2].interests << Interest.all
